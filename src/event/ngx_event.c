@@ -308,7 +308,7 @@ ngx_process_events_and_timers(ngx_cycle_t *cycle)
     ngx_event_process_posted(cycle, &ngx_posted_events);
 }
 
-
+// 重新把读事件注册到事件中，每次epoll_wait后，fd的事件类型将会清空，需要再次注册读写事件
 ngx_int_t
 ngx_handle_read_event(ngx_event_t *rev, ngx_uint_t flags)
 {

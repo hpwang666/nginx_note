@@ -402,7 +402,7 @@ ngx_http_wait_request_handler(ngx_event_t *rev)
 
     size = cscf->client_header_buffer_size;
 
-    b = c->buffer;
+    b = c->buffer; //用的是conn里面的buffer
 
     if (b == NULL) {
         b = ngx_create_temp_buf(c->pool, size);
@@ -574,7 +574,7 @@ ngx_http_alloc_request(ngx_connection_t *c)
 
     if (ngx_list_init(&r->headers_out.headers, r->pool, 20,
                       sizeof(ngx_table_elt_t))
-        != NGX_OK)
+        != NGX_OK) //链表初始化的时候就指定了每个数据单元的大小
     {
         ngx_destroy_pool(r->pool);
         return NULL;

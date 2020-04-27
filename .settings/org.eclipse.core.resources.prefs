@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/core/ngx_list.c=UTF-8
+encoding//src/core/ngx_list.h=UTF-8
+encoding//src/core/ngx_palloc.c=UTF-8
+encoding//src/http/ngx_http_request.c=UTF-8

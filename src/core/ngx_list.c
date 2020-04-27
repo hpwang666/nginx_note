@@ -35,7 +35,7 @@ ngx_list_push(ngx_list_t *l)
 
     last = l->last;
 
-    if (last->nelts == l->nalloc) {
+    if (last->nelts == l->nalloc) {//这个节点已经满了，再申请一个节点
 
         /* the last part is full, allocate a new list part */
 
@@ -55,7 +55,7 @@ ngx_list_push(ngx_list_t *l)
         l->last->next = last;
         l->last = last;
     }
-
+	//节点的初始地址 + 已经用了的个数*size
     elt = (char *) last->elts + l->size * last->nelts;
     last->nelts++;
 

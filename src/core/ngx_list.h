@@ -16,7 +16,7 @@
 typedef struct ngx_list_part_s  ngx_list_part_t;
 
 struct ngx_list_part_s {
-    void             *elts;
+    void             *elts;//节点的初始地址
     ngx_uint_t        nelts;
     ngx_list_part_t  *next;
 };
@@ -25,8 +25,8 @@ struct ngx_list_part_s {
 typedef struct {
     ngx_list_part_t  *last;
     ngx_list_part_t   part;
-    size_t            size;
-    ngx_uint_t        nalloc;
+    size_t            size;//每个节点的数据块大小
+    ngx_uint_t        nalloc;//每个节点有几个数据块
     ngx_pool_t       *pool;
 } ngx_list_t;
 
